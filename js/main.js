@@ -2,7 +2,9 @@ const container = document.querySelector('.container')
 const addTicket = document.querySelector('.add-ticket')
 const tickets = []
 let getLocalStorage
+const tbody = document.querySelector('.tbody')
 
+verifyStorage()
 
 function openTicketForm() {
     container.classList.add('hide')
@@ -10,10 +12,15 @@ function openTicketForm() {
 }
 
 function addNewTicket() {
-    const tbody = document.querySelector('.tbody')
 
     getNewTicketValue()
 
+    renderTIckets()
+
+    returnMainPage()
+}
+
+function renderTIckets() {
     tbody.innerHTML = ''
 
     for (let i = 0; i < getLocalStorage.length; i++) {
@@ -27,9 +34,9 @@ function addNewTicket() {
         </tr>
         `
     }
-
-    returnMainPage()
 }
+
+renderTIckets()
 
 function returnMainPage() {
     container.classList.remove('hide')
@@ -50,15 +57,13 @@ function getNewTicketValue() {
     tickets.push(newTickets)
     localStorage.clear()
     localStorage.setItem('boletos', JSON.stringify(tickets))
-    getLocalStorage = localStorage.getItem('boletos')
+    getLocalStorage = JSON.parse(localStorage.getItem('boletos'))
 }
 
 function verifyStorage() {
     const storage = localStorage.getItem('boletos')
 
     if (storage !== null) {
-        getLocalStorage = localStorage.getItem('boletos')
+        getLocalStorage = JSON.parse(localStorage.getItem('boletos'))
     }
 }
-
-verifyStorage()
