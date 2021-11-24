@@ -29,7 +29,7 @@
         <div>
             <img src="./assets/allegra_logo.png" alt="">
             <h1>Controle de Boletos</h1>
-            <button class="btn-add" onclick="addNewTicket()">INCLUIR</button>
+            <button class="btn-add" onclick="openTicketForm()">novo</button>
         </div>
     </header>
     <main class="main">
@@ -44,33 +44,25 @@
                         <th class="due-date">Vencimento</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td class="delete">Apagar</td>
-                        <td class="paid">Pago</td>
-                        <td class="ticket">Boleto</td>
-                        <td class="value">Valor</td>
-                        <td class="due-date">Vencimento</td>
-                    </tr>
+                <tbody class="tbody">
+
                 </tbody>
             </table>
         </div>
-        <div class="add-ticket">
+        <div class="add-ticket hide">
             <h1>Inserir dados:</h1>
-            <form action="submit">
-                <!-- <ion-icon name="trash-outline"></ion-icon>
-                <ion-icon name="checkmark-done-outline"></ion-icon> -->
+            <section class="section">
                 <p>Fornecedor:</p>
                 <input type="text">
                 <p>Valor:</p>
-                <input type="number">
+                <input type="number" class="value">
                 <p>Data de vencimento:</p>
                 <input type="date" class="date">
                 <div class="buttons">
-                    <button class="btn-confirm">CONFIRMAR</button>
-                    <button class="btn-cancel">CANCELAR</button>
+                    <button class="btn-confirm" onclick="addNewTicket()">confirmar</button>
+                    <button class="btn-cancel" onclick="returnMainPage()">cancelar</button>
                 </div>
-            </form>
+            </section>
         </div>
     </main>
 
