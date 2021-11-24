@@ -1,8 +1,8 @@
 const container = document.querySelector('.container')
 const addTicket = document.querySelector('.add-ticket')
-const tickets = []
-let getLocalStorage
 const tbody = document.querySelector('.tbody')
+const tickets = []
+let getLocalStorage = []
 
 verifyStorage()
 
@@ -65,5 +65,8 @@ function verifyStorage() {
 
     if (storage !== null) {
         getLocalStorage = JSON.parse(localStorage.getItem('boletos'))
+        for (let i = 0; i < getLocalStorage.length; i++) {
+            tickets.push(getLocalStorage[i])
+        }
     }
 }
