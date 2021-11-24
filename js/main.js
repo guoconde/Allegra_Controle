@@ -14,9 +14,7 @@ function openTicketForm() {
 function addNewTicket() {
 
     getNewTicketValue()
-
     renderTIckets()
-
     returnMainPage()
 }
 
@@ -39,8 +37,8 @@ function renderTIckets() {
 renderTIckets()
 
 function returnMainPage() {
-    container.classList.remove('hide')
     addTicket.classList.add('hide')
+    container.classList.remove('hide')
 }
 
 function getNewTicketValue() {
