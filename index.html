@@ -5,11 +5,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <meta name="Allegra" content="Controle Interno">
+    <meta name="keywords" content="HTML, CSS, JS">
+    <meta name="Gustavo Conde" content="Aplicação para Controle">
+
+    <link rel="shortcut icon" href="./assets/allegra_logo.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <title>Allegra Controle</title>
 </head>
 
 <body>
+    <header class="header">
+        <div>
+            <img src="./assets/allegra_logo.png" alt="">
+            <h1>Controle de Boletos</h1>
+            <button class="btn-add" onclick="addNewTicket()">INCLUIR</button>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <table>
+                <tr>
+                    <th class="delete">Apagar</th>
+                    <th class="paid">Pago</th>
+                    <th class="ticket">Boleto</th>
+                    <th class="value">Valor</th>
+                    <th class="due-date">Vencimento</th>
+                </tr>
+                <tr>
+                    <td class="delete">Apagar</td>
+                    <td class="paid">Pago</td>
+                    <td class="ticket">Boleto</td>
+                    <td class="value">Valor</td>
+                    <td class="due-date">Vencimento</td>
+                </tr>
+            </table>
+        </div>
+    </main>
 
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
