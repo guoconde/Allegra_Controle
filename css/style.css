@@ -12,7 +12,7 @@ button {
     width: 150px;
     height: 50px;
     
-    background-color: green;
+    background-color: purple;
     color: white;
     
     text-align: center;
@@ -24,9 +24,11 @@ button {
 
 .header {
     width: 100%;
-
-    background-color: #fff;
-    box-shadow: 0px 4px 4px rgba(97, 69, 69, 0.20);
+    
+    position: fixed;
+    top: 0;
+    background-color:  rgb(170, 110, 240);
+    box-shadow: 0px 4px 4px rgba(97, 69, 69, 0.40);
 }
 
 .header div{
@@ -42,48 +44,85 @@ button {
     
     font-size: 24px;
     font-weight: 500;
+
 }
 
 .header img {
     width: 60px;
+    border-radius: 52%;
+    box-shadow: 0px 4px 4px rgba(97, 69, 69, 0.60)
 }
 
 .container,
 .add-ticket {
     width: 900px;
-    /* height: 600px; */
     
-    background-color: #fff;
-    box-shadow: 0px 4px 4px rgba(97, 69, 69, 0.20);
+    background-color: rgb(170, 110, 240);
+    box-shadow: 0px 0px 10px rgba(97, 69, 69, 0.60);
     
-    margin: 60px auto;
+    margin: 160px auto 30px;
     padding: 30px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     
     border-radius: 5px;
 
-    animation: bounceIn;
-    animation-duration: 2s;
+    animation: pulse;
+    animation-duration: 0.3s;
 }
 
-table {
+.table,
+.footer {
     width: 100%;
+    height: 50px;
     
-    border: 1px solid lightgray;
-
+    background-color: purple;
+    
     font-size: 18px;
-    text-align: center;
+    font-weight: 500;
+    color: white;
+    text-transform: uppercase;
+    
+    display: flex;
 }
 
-tr {
-    height: 50px;
+.table > div,
+.footer > div {
     display: flex;
-    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.body {
+    width: 100%;
+
+    font-size: 20px;
+    font-weight: 400;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.body > div:nth-child(odd) {
+    background-color: rgb(150, 60, 240);
+}
+
+.tickets {
+    width: 100%;
+    height: 40px;
+
+    display: flex;
     align-items: center;
 }
 
 .delete {
     width: 5%;
-    padding-left: 10px;
 }
 
 .paid {
@@ -91,37 +130,64 @@ tr {
 }
 
 .ticket {
-    width: 70%;
+    width: 60%;
 }
 
-.due-date {
-    width: 15%;
+.tickets .ticket {
+    padding-left: 20px;
+    
 }
 
 .value {
     width: 10%;
+    text-align: center;
+}
+
+.due-date {
+    width: 20%;
+    text-align: center;
+}
+
+.amount {
+    width: 70%;
+}
+
+.amount-sum {
+    width: 30%;
 }
 
 button:active {
-    background-color: darkgreen;
+    background-color: rgb(50, 0, 50);
 }
 
 .add-ticket h1 {
+    width: 900px;
+    height: 50px;
+
     text-align: center;
     text-transform: uppercase;
     font-size: 20px;
     font-weight: 500;
+    color: lightgray;
 
     margin: 20px 0;
+    padding-top: 15px;
+
+    background-color: purple;
 }
 
 .add-ticket section {
+    width: 100%;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
 
     padding: 50px 30px;
+
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
 input {
@@ -136,6 +202,8 @@ input {
 
     margin-bottom: 15px;
     padding: 0 15px;
+
+    cursor: pointer;
 }
 
 input.date,

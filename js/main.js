@@ -1,6 +1,6 @@
 const container = document.querySelector('.container')
 const addTicket = document.querySelector('.add-ticket')
-const tbody = document.querySelector('.tbody')
+const body = document.querySelector('.body')
 const tickets = []
 let getLocalStorage = []
 
@@ -16,20 +16,21 @@ function addNewTicket() {
     getNewTicketValue()
     renderTIckets()
     returnMainPage()
+    amountSum()
 }
 
 function renderTIckets() {
-    tbody.innerHTML = ''
+    body.innerHTML = ''
 
     for (let i = 0; i < getLocalStorage.length; i++) {
-        tbody.innerHTML += `
-        <tr>
-            <td><ion-icon name="trash-outline"></ion-icon></td>
-            <td><ion-icon name="checkmark-done-outline"></ion-icon></td>
-            <td class="ticket">${getLocalStorage[i].newName}</td>
-            <td class="value">${getLocalStorage[i].newValue}</td>
-            <td class="due-date">${getLocalStorage[i].newDate}</td>
-        </tr>
+        body.innerHTML += `
+        <div class="tickets">
+            <ion-icon class="delete" name="trash-outline"></ion-icon>
+            <ion-icon class="paid" name="checkmark-done-outline"></ion-icon>
+            <div class="ticket">${getLocalStorage[i].newName}</div>
+            <div class="value">${getLocalStorage[i].newValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</div>
+            <div class="due-date">${getLocalStorage[i].newDate}</div>
+        </div>
         `
     }
 }
@@ -68,3 +69,16 @@ function verifyStorage() {
         }
     }
 }
+
+function amountSum() {
+    const showAmount = document.querySelector('.amount-sum')
+    let sum = 0
+
+    getLocalStorage.forEach(function (newValue, i) {
+        sum += getLocalStorage[i].newValue
+    })
+
+    showAmount.innerHTML = sum.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+}
+
+amountSum()
