@@ -4,7 +4,7 @@
 
 body {
     font-family: 'roboto';
-    background-color: #e5e5e5;
+    background-color: rgb(210, 190, 240);
 }
 
 button {
@@ -13,7 +13,7 @@ button {
     height: 50px;
     
     background-color: purple;
-    color: white;
+    color: rgb(210, 190, 240);
     
     text-align: center;
     text-transform: uppercase;
@@ -84,7 +84,7 @@ button {
     
     font-size: 18px;
     font-weight: 500;
-    color: white;
+    color: rgb(210, 190, 240);
     text-transform: uppercase;
     
     display: flex;
@@ -119,6 +119,8 @@ button {
 
     display: flex;
     align-items: center;
+
+    text-transform: uppercase;
 }
 
 .delete {
@@ -168,7 +170,7 @@ button:active {
     text-transform: uppercase;
     font-size: 20px;
     font-weight: 500;
-    color: lightgray;
+    color: rgb(210, 190, 240);
 
     margin: 20px 0;
     padding-top: 15px;
@@ -197,7 +199,7 @@ input {
     width: 100%;
     height: 50px;
     
-    border: 1px solid lightgray;
+    border: 1px solid rgb(210, 190, 240);
     border-radius: 5px;
 
     margin-bottom: 15px;
