@@ -17,16 +17,22 @@ function addNewTicket() {
     renderTIckets()
     returnMainPage()
     amountSum()
+
+    document.querySelector('section input:nth-child(2)').value = null
+    document.querySelector('section input:nth-child(4)').value = null
+    document.querySelector('section input:nth-child(6)').value = null
 }
 
 function renderTIckets() {
     body.innerHTML = ''
 
-    for (let i = 0; i < getLocalStorage.length; i++) {
+    const reverse = getLocalStorage.length - 1
+
+    for (let i = reverse; i >= 0; i--) {
         body.innerHTML += `
         <div class="tickets">
             <ion-icon class="delete" onclick="deleteTicket('${getLocalStorage[i].newName}')" name="trash-outline"></ion-icon>
-            <ion-icon class="paid" onclick="doneTicket('${getLocalStorage[i].newName}')" name="checkmark-done-outline"></ion-icon>
+            <ion-icon class="paid" onclick="doneTicket('${getLocalStorage[i].newName}', this)" name="checkmark-done-outline"></ion-icon>
             <div class="ticket">${getLocalStorage[i].newName}</div>
             <div class="value">${getLocalStorage[i].newValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</div>
             <div class="due-date">${getLocalStorage[i].newDate}</div>
@@ -55,9 +61,7 @@ function getNewTicketValue() {
     newTickets.newDate = dayjs(document.querySelector('section input:nth-child(6)').value).format('DD-MM-YYYY')
 
     tickets.push(newTickets)
-    localStorage.clear()
-    localStorage.setItem('boletos', JSON.stringify(tickets))
-    getLocalStorage = JSON.parse(localStorage.getItem('boletos'))
+    resetLocalStorage()
 }
 
 function verifyStorage() {
@@ -89,25 +93,28 @@ function deleteTicket(name) {
         name === getLocalStorage[i].newName ? getLocalStorage.splice(i, 1) && tickets.splice(i, 1) : false
     })
 
-    localStorage.clear()
-    localStorage.setItem('boletos', JSON.stringify(tickets))
-    getLocalStorage = JSON.parse(localStorage.getItem('boletos'))
-
+    resetLocalStorage()
     renderTIckets()
     amountSum()
 }
 
-function doneTicket(name) {
+function doneTicket(name, element) {
     getLocalStorage.forEach(function (newValue, i) {
         if (name === getLocalStorage[i].newName && getLocalStorage[i].done === false) {
             tickets[i].done = true
+            element.parentNode.setAttribute("style", "font-style: italic; opacity: 0.2;")
         } else if (name === getLocalStorage[i].newName && getLocalStorage[i].done !== false) {
             tickets[i].done = false
+            element.parentNode.setAttribute("style", "font-style: normal, opacity: 1")
         }
     })
 
+    resetLocalStorage()
+    amountSum()
+}
+
+function resetLocalStorage() {
     localStorage.clear()
     localStorage.setItem('boletos', JSON.stringify(tickets))
     getLocalStorage = JSON.parse(localStorage.getItem('boletos'))
-    amountSum()
 }

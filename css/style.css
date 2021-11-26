@@ -27,8 +27,9 @@ button {
     
     position: fixed;
     top: 0;
-    background-color:  rgb(170, 110, 240);
+    background-color:  purple;
     box-shadow: 0px 4px 4px rgba(97, 69, 69, 0.40);
+    color: rgb(210, 190, 240);
 }
 
 .header div{
@@ -48,9 +49,7 @@ button {
 }
 
 .header img {
-    width: 60px;
-    border-radius: 52%;
-    box-shadow: 0px 4px 4px rgba(97, 69, 69, 0.60)
+    width: 130px;
 }
 
 .container,
@@ -100,8 +99,8 @@ button {
 .body {
     width: 100%;
 
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 500;
 
     display: flex;
     flex-direction: column;
